@@ -82,7 +82,7 @@ class Lidar(object):
 def main():
     """Start the ROS node, create the publishers, and continuosly update and
     publish the lidar sensor data"""
-
+    time.sleep(1) # allow 1 second for the i2c remapping to occur
     # ROS Setup
     ###########
     node_name = os.path.splitext(os.path.basename(__file__))[0]
