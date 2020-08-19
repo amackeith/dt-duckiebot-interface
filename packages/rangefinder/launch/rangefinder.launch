@@ -48,7 +48,10 @@
 	  		name="infrared_node" output="screen"
 	  		required="false"></node>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 725744a729e517c3ab70a524ef456f14c77098ca
   </group>
 
 
