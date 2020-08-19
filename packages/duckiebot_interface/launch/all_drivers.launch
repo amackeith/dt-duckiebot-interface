@@ -48,15 +48,20 @@
     </group>
 
 
-	<group if="$(eval arg('robot_type') == 'duckiedrone')">
-  	  <include file="$(find rangefinder)/launch/rangefinder.launch">
+    <group if="$(eval arg('robot_type') == 'duckiedrone')">
+	  <include file="$(find joystick)/launch/joystick_node.launch">
+            <arg name="veh" value="$(arg veh)"/>
+            <arg name="param_file_name" value="$(arg param_file_name)"/>
+          </include>  
+	    
+	  <include file="$(find rangefinder)/launch/rangefinder.launch">
   		  <arg name="veh" value="$(arg veh)"/>
   	  </include>
 
   	  <include file="$(find flight_controller)/launch/flight_controller.launch">
   		  <arg name="veh" value="$(arg veh)"/>
   		  <arg name="robot_type" value="$(arg robot_type)"/>
-            </include>
+          </include>
     </group>
 
 
