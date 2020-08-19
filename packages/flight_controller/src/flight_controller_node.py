@@ -272,8 +272,10 @@ class FlightController(object):
         """
         curr_time = rospy.Time.now()
         disarm = False
-        if self.battery_message.voltage != None and self.battery_message.voltage < self.minimum_voltage:
+        if self.battery_message.voltage != None and abs(self.battery_message.voltage) < self.minimum_voltage:
+            # abs is there bc some battery readings have a flipped sign.
             print('\nSafety Failure: low battery\n')
+            print('bat voltage ', self.battery_message.voltage, "<", self.minimum_voltage)
             disarm = True
         if curr_time - self.heartbeat_web_interface > rospy.Duration.from_sec(3):
             print('\nSafety Failure: web interface heartbeat\n')
