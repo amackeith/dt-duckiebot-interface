@@ -11,4 +11,7 @@ It should not contain any high-level functionality.
 
 ```$ docker -H <Hostname>.local run --name duckiebot-interface -v /dev/serial/by-id:/dev/serial/by-i -v /data:/data --privileged --network=host -dit --restart unless-stopped -e ROBOT_TYPE=<ROBOT_TYPE> duckietown/duckiebot-interface:daffy-arm32v7```
 
+
+```$ docker -H <Hostname>.local run --name duckiebot-interface -v /dev/serial/by-id:/dev/serial/by-i -v /data:/data --privileged --network=host -dit --restart unless-stopped -e ROBOT_TYPE=<ROBOT_TYPE> duckietown/duckiebot-interface:daffy-new-deal-arm32v7```
+
 By default, `ROBOT_TYPE` is duckiebot, and you can set it to watchtower or traffic_light if you use them.
